@@ -1,7 +1,7 @@
 // src/components/ProductForm.tsx
 import React, { useState } from 'react';
 import axios from 'axios';
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 interface Product {
   name: string;
@@ -20,7 +20,7 @@ export default function AddProduct() {
 
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<boolean>(false);
-const navigate = useNavigate()
+  const navigate = useNavigate()
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -110,9 +110,8 @@ const navigate = useNavigate()
         <button
           type="submit"
           disabled={loading}
-          className={`w-full py-2 px-4 rounded text-white font-medium ${
-            loading ? 'bg-gray-400' : 'bg-blue-600 hover:bg-blue-700'
-          }`}
+          className={`w-full py-2 px-4 rounded text-white font-medium ${loading ? 'bg-gray-400' : 'bg-blue-600 hover:bg-blue-700'
+            }`}
         >
           {loading ? 'Submitting...' : 'Add Product'}
         </button>

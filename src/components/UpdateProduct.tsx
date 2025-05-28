@@ -81,7 +81,7 @@ export default function UpdateProduct() {
 
   return (
     <div className="max-w-xl mx-auto p-4 space-y-6">
-      <h1 className="text-2xl font-semibold">Edit Product #{productid}</h1>
+      <h1 className="text-2xl font-semibold">Update Product #{productid}</h1>
 
       {/* Name */}
       <div>
@@ -131,9 +131,8 @@ export default function UpdateProduct() {
       <button
         onClick={handleSave}
         disabled={saving}
-        className={`w-full bg-blue-600 text-white py-2 rounded ${
-          saving ? 'opacity-50 cursor-not-allowed' : 'hover:bg-blue-700'
-        }`}
+        className={`w-full bg-blue-600 text-white py-2 rounded ${saving ? 'opacity-50 cursor-not-allowed' : 'hover:bg-blue-700'
+          }`}
       >
         {saving ? 'Saving…' : 'Save Changes'}
       </button>
