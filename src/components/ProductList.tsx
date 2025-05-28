@@ -84,9 +84,15 @@ export default function ProductList() {
             <div className="flex flex-col gap-2">
               <Link
                 to={`/update/${prod.id}`}
-                className="text-blue-600 hover:underline"
+                className="inline-block bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700"
               >
                 Update
+              </Link>
+              <Link
+                to={`/updatefew/${prod.id}`}
+                className="inline-block bg-yellow-600 text-white py-2 px-4 rounded hover:bg-yellow-700"
+              >
+                Patch Update
               </Link>
 
               <button
