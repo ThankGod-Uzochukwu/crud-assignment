@@ -1,6 +1,7 @@
 // src/components/ProductForm.tsx
 import React, { useState } from 'react';
 import axios from 'axios';
+import {useNavigate} from 'react-router-dom'
 
 interface Product {
   name: string;
@@ -17,8 +18,9 @@ export default function AddProduct() {
 
   const [loading, setLoading] = useState(false);
 
-  const [error, setError]       = useState<string | null>(null);
-  const [success, setSuccess]   = useState<boolean>(false);
+  const [error, setError] = useState<string | null>(null);
+  const [success, setSuccess] = useState<boolean>(false);
+const navigate = useNavigate()
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -45,6 +47,7 @@ export default function AddProduct() {
       setDescription('');
       setPrice('');
       setStock('');
+      navigate('/get')
     } catch (err) {
       console.error(err);
       setError('Failed to add product.');

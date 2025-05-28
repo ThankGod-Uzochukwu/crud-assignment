@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import AddProduct from './AddProduct';
-
+import {Link} from 'react-router-dom'
 interface Product {
   id: number;
   name: string;
@@ -53,17 +52,24 @@ export default function ProductList() {
         {products.map((prod) => (
           <div
             key={prod.id}
-            className="p-4 border rounded-lg hover:shadow-lg transition-shadow bg-white"
+            className="p-4 border rounded-lg hover:shadow-lg transition-shadow bg-white flex-row flex justify-between"
           >
+            <div>
             <h2 className="text-lg font-medium">{prod.name}</h2>
             <p className="text-gray-700 mt-2">{prod.description}</p>
             <p className="text-gray-600 mt-2">price: ${prod.price.toFixed(2)}</p>
             <p className="text-sm text-gray-500 mt-2">stock: {prod.stock}</p>
+            </div>
+            <div className="flex flex-column gap-3">
+            <Link to={`/update/${prod.id}`}>Update</Link>
+            <Link to='/add'>Delete</Link>
+            </div>
           </div>
         ))}
       </div>
 
-      <AddProduct />
+      <Link to='/add'>Add New Product</Link>
+
     </div>
   );
 }
