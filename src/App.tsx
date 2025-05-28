@@ -1,12 +1,19 @@
 import './App.css';
-import Home from './pages/home';
-import Profile from './components/profile';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import UpdateProduct from './components/UpdateProduct';
+import ProductList from './components/ProductList';
+import AddProduct from './components/AddProduct';
 
 function App() {
   return (
-    <div className="App">
-      <Home />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/get' element={<ProductList />} />
+        <Route path='/add' element={<AddProduct />} />
+        <Route path='/update/:productid' element={<UpdateProduct />} />
+        <Route path='/get/:productid' element={<ProductList />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
