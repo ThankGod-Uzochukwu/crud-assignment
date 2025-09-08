@@ -1,3 +1,4 @@
+// src/components/ProductForm.tsx
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom'
@@ -26,7 +27,8 @@ export default function AddProduct() {
     setLoading(true);
     setError(null);
     setSuccess(false);
-    
+
+    // Basic validation
     if (!name || !description || price === '' || !stock) {
       setError('All fields are required.');
       setLoading(false);
@@ -45,7 +47,7 @@ export default function AddProduct() {
       setDescription('');
       setPrice('');
       setStock('');
-      navigate('/')
+      navigate('/get')
     } catch (err) {
       console.error(err);
       setError('Failed to add product.');
